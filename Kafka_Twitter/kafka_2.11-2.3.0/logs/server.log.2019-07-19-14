@@ -1,0 +1,5 @@
+[2019-07-19 15:02:31,750] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 2 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+[2019-07-19 15:12:30,349] INFO [GroupCoordinator 0]: Member consumer-1-01792c94-94ee-4c87-b82d-6b1562a7546f in group console-consumer-12240 has failed, removing it from the group (kafka.coordinator.group.GroupCoordinator)
+[2019-07-19 15:12:30,351] INFO [GroupCoordinator 0]: Preparing to rebalance group console-consumer-12240 in state PreparingRebalance with old generation 1 (__consumer_offsets-40) (reason: removing member consumer-1-01792c94-94ee-4c87-b82d-6b1562a7546f on heartbeat expiration) (kafka.coordinator.group.GroupCoordinator)
+[2019-07-19 15:12:30,352] INFO [GroupCoordinator 0]: Group console-consumer-12240 with generation 2 is now empty (__consumer_offsets-40) (kafka.coordinator.group.GroupCoordinator)
+[2019-07-19 15:12:30,446] WARN Client session timed out, have not heard from server in 17181ms for sessionid 0x1000011cf640000 (org.apache.zookeeper.ClientCnxn)

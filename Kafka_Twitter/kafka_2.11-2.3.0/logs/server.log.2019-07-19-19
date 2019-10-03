@@ -1,0 +1,5 @@
+[2019-07-19 19:42:56,752] WARN Unable to read additional data from client sessionid 0x1000011cf640001, likely client has closed socket (org.apache.zookeeper.server.NIOServerCnxn)
+[2019-07-19 19:42:56,832] INFO Closed socket connection for client /127.0.0.1:41406 which had sessionid 0x1000011cf640001 (org.apache.zookeeper.server.NIOServerCnxn)
+[2019-07-19 19:42:58,825] INFO Accepted socket connection from /127.0.0.1:41572 (org.apache.zookeeper.server.NIOServerCnxnFactory)
+[2019-07-19 19:42:58,826] INFO Client attempting to renew session 0x1000011cf640001 at /127.0.0.1:41572 (org.apache.zookeeper.server.ZooKeeperServer)
+[2019-07-19 19:42:58,828] INFO Established session 0x1000011cf640001 with negotiated timeout 6000 for client /127.0.0.1:41572 (org.apache.zookeeper.server.ZooKeeperServer)

@@ -1,0 +1,6 @@
+[2019-09-15 15:01:54,688] INFO Terminating process due to signal SIGHUP (org.apache.kafka.common.utils.LoggingSignalHandler)
+[2019-09-15 15:01:54,699] INFO [KafkaServer id=0] shutting down (kafka.server.KafkaServer)
+[2019-09-15 15:01:54,740] INFO [GroupCoordinator 0]: Member consumer-1-8f29ed97-e4ba-4b5c-963e-0f36f3b9a72d in group console-consumer-1677 has left, removing it from the group (kafka.coordinator.group.GroupCoordinator)
+[2019-09-15 15:01:54,741] INFO [GroupCoordinator 0]: Preparing to rebalance group console-consumer-1677 in state PreparingRebalance with old generation 1 (__consumer_offsets-30) (reason: removing member consumer-1-8f29ed97-e4ba-4b5c-963e-0f36f3b9a72d on LeaveGroup) (kafka.coordinator.group.GroupCoordinator)
+[2019-09-15 15:01:54,748] INFO [GroupCoordinator 0]: Group console-consumer-1677 with generation 2 is now empty (__consumer_offsets-30) (kafka.coordinator.group.GroupCoordinator)
+[2019-09-15 15:01:54,814] INFO [KafkaServer id=0] Starting controlled shutdown (kafka.server.KafkaServer)
