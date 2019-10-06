@@ -1,7 +1,7 @@
 import flask
 from flask import Response, jsonify
 from flask_mongoalchemy import MongoAlchemy, BaseQuery
-from flask.ext.cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
@@ -13,7 +13,10 @@ import requests
 def create_app(config=None):
 	app = flask.Flask(__name__)
 	app.config["DEBUG"] = True
-	app.config["MONGO_URI"] = "mongodb://localhost:27017/test"
+	app.config["MONGO_URI"] = "mongodb://mongodb:27017/test" # use for docker
+	# app.config["MONGO_URI"] = "mongodb://localhost:27017/test" # use for local
+
+
 	mongo = PyMongo(app)
 
 	def get_tweets():
@@ -21,7 +24,7 @@ def create_app(config=None):
 
 		tweets_list = []
 		for tweet in tweets:
-			print(tweet['retweeted'])
+			print(tweet)
 			del tweet['_id']
 			tweets_list.append(dict(tweet))
 
@@ -29,7 +32,7 @@ def create_app(config=None):
 
 	@app.route('/', methods=['GET'])
 	def home():
-	    return "<h1>Twitter Data Analysis</h1><p>This site is a web services API for machine learning using twitter data.</p>"
+		return "<h1>Twitter Data Analysis</h1><p>This site is a web services API for machine learning using twitter data.</p>"
 
 	# A route to return all of the available tweets in the mongodb test.tweets database collection.
 	@app.route('/api/get/tweets/all', methods=['GET'])
@@ -45,8 +48,10 @@ def create_app(config=None):
 
 		tweets_list = get_tweets()
 
-		for tweet in tweets_list:
-			print(tweet['text'])
+		# for tweet in tweets_list:
+			# for key, value in tweet.items() :
+			# 	print(key)
+			# 	print(value)
 
 		prediction = list(["up"])
 		return Response(json.dumps(prediction),  mimetype='application/json')
@@ -66,5 +71,5 @@ def create_app(config=None):
 	return app
 
 if __name__ == "__main__":
-    app = create_app()
-    app.run(host='0.0.0.0')
+	app = create_app()
+	app.run(host='0.0.0.0')
