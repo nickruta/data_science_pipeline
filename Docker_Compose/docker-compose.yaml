@@ -1,0 +1,60 @@
+version: '3'
+services:
+  mysql:
+   container_name: some-mysql
+   image: mysql/mysql-server:5.7
+   environment:
+    MYSQL_DATABASE: testdb_springapp
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_ROOT_USER: root
+    MYSQL_ROOT_HOST: '%'
+   ports:
+   - "3306:3306"
+   restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --logpath=/dev/null # --quiet
+
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - mongodb
+
+  springapp:
+    restart: always
+    build: ./app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+      - ~/.m2:/root/.m2
+    expose:
+      - "8080"
+    ports:
+      - 8080:8080
+    command: mvn clean spring-boot:run
+    depends_on:
+      - mysql
+      - mongodb
+
+  angularapp:
+      image: 'angularapp'
+      build: './angularapp'
+      ports:
+          - 4200:80
+  flaskapp:
+    build: ./flaskapp/api
+    ports:
+        - "5000:5000"
+    volumes:
+        - .:/flaskapp/api/
+    depends_on:
+        - mongodb

@@ -1,0 +1,1 @@
+docker-compose exec springapp curl -d '{"name": "admin", "username":"admin","email":"admin@admin.com", "role":["admin"], "password":"123456789"}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/auth/signup

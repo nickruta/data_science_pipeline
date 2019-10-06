@@ -1,0 +1,9 @@
+flask-cors==3.0.8
+flask==1.0.4
+pymongo==3.5.1
+pytest-flask==0.10.0
+pytest-mock==1.10.0
+flask_mongoalchemy==0.7.2
+flask_pymongo==2.3.0
+flask-cors==3.0.8
+requests==2.22.0
